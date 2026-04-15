@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Currency Detection System — Raushan Kumar | NIT Nagaland</title>
+    <meta name="description" content="Live fake currency detection system using image processing and computer vision. Detect counterfeit Indian currency notes instantly. Built by Raushan Kumar, BTech NIT Nagaland.">
+    <meta name="keywords" content="fake currency detection, counterfeit currency detector, Indian currency authentication, image processing, computer vision, OpenCV, SSIM, Raushan Kumar, NIT Nagaland, raushanme, currency scanner, note verification, fake note detector">
+    <meta name="author" content="Raushan Kumar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://raushanme.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://raushanme.com/">
+    <meta property="og:title" content="Fake Currency Detection System — Raushan Kumar">
+    <meta property="og:description" content="Live fake currency detection using image processing and computer vision. Detect counterfeit Indian notes instantly.">
+    <meta property="og:image" content="https://raushanme.com/raushan.jpg">
+    <meta property="og:site_name" content="CurrencyGuard by Raushan Kumar">
+    <meta property="og:locale" content="en_IN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fake Currency Detection System — Raushan Kumar">
+    <meta name="twitter:description" content="Detect counterfeit Indian currency notes instantly with computer vision.">
+    <meta name="twitter:image" content="https://raushanme.com/raushan.jpg">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fake Currency Detection System","url":"https://raushanme.com","description":"Live fake currency detection system using image processing and computer vision.","author":{"@type":"Person","name":"Raushan Kumar","affiliation":{"@type":"CollegeOrUniversity","name":"National Institute of Technology Nagaland"}},"applicationCategory":"Utility","operatingSystem":"Web Browser"}</script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Removed OpenCV.js completely -->
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">CurrencyGuard</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#demo" class="nav-link">Live Demo</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#tech" class="nav-link">Technology</a>
+                <a href="#workflow" class="nav-link">How It Works</a>
+            </div>
+            <div class="nav-right">
+                <a href="#demo" class="nav-cta">Try Now</a>
+                <a href="#author" class="nav-cta nav-cta-outline">Author</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-gradient"></div>
+        <div class="hero-ornament" aria-hidden="true">
+            <svg width="240" height="80" viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M120 8c-12 0-20 8-28 16S78 40 66 40s-20-8-28-16S24 8 12 8" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.35"/>
+                <path d="M120 8c12 0 20 8 28 16s14 16 26 16 20-8 28-16 14-16 26-16" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.35"/>
+                <circle cx="120" cy="40" r="8" stroke="currentColor" stroke-width="1" fill="none" opacity="0.25"/>
+                <circle cx="120" cy="40" r="3" fill="currentColor" opacity="0.2"/>
+                <path d="M108 40c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.2"/>
+                <path d="M100 52c4-6 10-12 20-12s16 6 20 12" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.15"/>
+            </svg>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-chip">Currency Authentication System</span>
+            <h1 class="hero-h1">Detect fake currency,<br>protect real value.</h1>
+            <p class="hero-sub">Backed by advanced LLM Vision APIs. Powered by Generative AI.<br>Delivering unparalleled insight for currency verification.</p>
+            <div class="hero-btns">
+                <a href="#demo" class="btn btn-dark">Try Live Demo</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+        <p class="hero-tagline">BUILT BY RAUSHAN KUMAR &middot; NIT NAGALAND</p>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-chip">About the Project</span>
+                <h2 class="sec-title">Authenticating Indian currency<br>with computer vision.</h2>
+                <p class="sec-sub">A system that takes a currency note image as input, extracts security features, compares them against authentic references using SSIM, and delivers a detailed pass/fail verdict.</p>
+            </div>
+            <div class="card-row">
+                <div class="info-card">
+                    <div class="ic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
+                    </div>
+                    <h3>Image Analysis</h3>
+                    <p>Pixel-level extraction and analysis of security features from currency note images.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Security Verification</h3>
+                    <p>Individual verification of multiple security features against authentic reference samples.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 17 4-8 4 4 5-10"/></svg>
+                    </div>
+                    <h3>SSIM Scoring</h3>
+                    <p>Structural Similarity Index provides quantitative scores for each security feature.</p>
+                </div>
+                <div class="info-card">
+                    <div class="ic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h3>AI Reasoning</h3>
+                    <p>Instead of hardcoded rules, the system intelligently reasons through its analysis with deep learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section class="section section-warm" id="demo">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-chip">Live Detection</span>
+                <h2 class="sec-title">Try it yourself.</h2>
+                <p class="sec-sub">Upload an image or use your camera to analyze currency authenticity in real-time.</p>
+            </div>
+
+            <div class="demo-wrap">
+                <!-- Mode tabs -->
+                <div class="demo-tabs">
+                    <button class="demo-tab active" data-mode="upload">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        Upload Image
+                    </button>
+                    <button class="demo-tab" data-mode="camera">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        Live Camera
+                    </button>
+                </div>
+
+                <div class="demo-body">
+                    <!-- Left: Input -->
+                    <div class="demo-input">
+                        <!-- Upload mode -->
+                        <div class="upload-zone" id="uploadZone">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            <p class="upload-main">Drop currency image here or <span class="upload-browse">browse</span></p>
+                            <p class="upload-hint">JPG, PNG, WEBP up to 10MB</p>
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                        </div>
+
+                        <!-- Camera mode -->
+                        <div class="camera-zone" id="cameraZone" style="display:none">
+                            <video id="cameraVideo" autoplay playsinline muted></video>
+                            <div class="camera-overlay">
+                                <div class="camera-frame"></div>
+                            </div>
+                            <div class="camera-controls">
+                                <button class="btn btn-dark btn-sm" id="captureBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                                    Capture & Analyze
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Preview -->
+                        <div class="preview-zone" id="previewZone" style="display:none">
+                            <img id="previewImg" alt="Currency preview">
+                            <div class="preview-scanline" id="previewScanline"></div>
+                        </div>
+
+                        <!-- Controls under preview -->
+                        <div class="input-controls" id="inputControls" style="display:none">
+                            <div class="action-row">
+                                <button class="btn btn-dark" id="analyzeBtn">Analyze Currency</button>
+                                <button class="btn btn-outline btn-sm" id="resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Results -->
+                    <div class="demo-output" id="demoOutput">
+                        <div class="output-empty" id="outputEmpty">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                            <p>Upload an image or use camera to begin analysis</p>
+                        </div>
+
+                        <div class="output-results" id="outputResults" style="display:none">
+                            <!-- Verdict -->
+                            <div class="verdict" id="verdict">
+                                <div class="verdict-dot" id="verdictDot"></div>
+                                <div>
+                                    <strong id="verdictLabel">Analyzing...</strong>
+                                    <span id="verdictDesc"></span>
+                                </div>
+                            </div>
+
+                            <!-- Ring -->
+                            <div class="ring-wrap">
+                                <svg class="ring-svg" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="52" fill="none" stroke="#eee" stroke-width="7"/>
+                                    <circle id="ringArc" cx="60" cy="60" r="52" fill="none" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" transform="rotate(-90 60 60)"/>
+                                </svg>
+                                <span class="ring-val" id="ringVal">0%</span>
+                            </div>
+
+                            <!-- Bars -->
+                            <div class="result-bars" id="resultBars"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="analysisCanvas" style="display:none"></canvas>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-chip">Capabilities</span>
+                <h2 class="sec-title">What makes it powerful.</h2>
+            </div>
+            <div class="feat-grid">
+                <div class="feat-card"><span class="feat-num">01</span><h3>Vision Language Models</h3><p>Evaluates visual consistency and micro-structures intelligently using Gemini 1.5 Pro Vision.</p></div>
+                <div class="feat-card"><span class="feat-num">02</span><h3>Live API Inference</h3><p>Serverless architecture directly communicating visual buffers to deep-learning endpoints.</p></div>
+                <div class="feat-card"><span class="feat-num">03</span><h3>Contextual Reasoning</h3><p>Presents human-readable explanations instead of basic pass/fail binary limits.</p></div>
+                <div class="feat-card"><span class="feat-num">04</span><h3>Dynamic Confidence</h3><p>Generates real-time authenticity probabilities based on LLM heuristic interpretations.</p></div>
+                <div class="feat-card"><span class="feat-num">05</span><h3>Privacy First</h3><p>Images are uploaded directly to the provider. No intermediate backend logging or storage.</p></div>
+                <div class="feat-card"><span class="feat-num">06</span><h3>Any Denomination</h3><p>Capable of learning and assessing any international currency via zero-shot classification.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="section section-warm" id="tech">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-chip">Technology</span>
+                <h2 class="sec-title">Built with.</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item"><div class="tech-dot" style="background:#f1e05a"></div><span class="tech-name">JavaScript</span><span class="tech-desc">Core Language</span></div>
+                <div class="tech-item"><div class="tech-dot" style="background:#4B8BBE"></div><span class="tech-name">Google AI</span><span class="tech-desc">Gemini Vision</span></div>
+                <div class="tech-item"><div class="tech-dot" style="background:#E34F26"></div><span class="tech-name">HTML5</span><span class="tech-desc">Canvas APIs</span></div>
+                <div class="tech-item"><div class="tech-dot" style="background:#563d7c"></div><span class="tech-name">CSS3</span><span class="tech-desc">Modern Styling</span></div>
+                <div class="tech-item"><div class="tech-dot" style="background:#000000"></div><span class="tech-name">Vercel</span><span class="tech-desc">CDN Edge</span></div>
+                <div class="tech-item"><div class="tech-dot" style="background:#FF9900"></div><span class="tech-name">REST APIs</span><span class="tech-desc">Serverless</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="section" id="workflow">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-chip">Workflow</span>
+                <h2 class="sec-title">How it works.</h2>
+            </div>
+            <div class="steps">
+                <div class="step"><span class="step-num">1</span><div class="step-body"><h3>Configure Source</h3><p>Input your secure Gemini API Key via the settings panel at the top right.</p></div></div>
+                <div class="step"><span class="step-num">2</span><div class="step-body"><h3>Snapshot Target</h3><p>Use your local webcam or browse for a high-quality photo of the currency.</p></div></div>
+                <div class="step"><span class="step-num">3</span><div class="step-body"><h3>AI Transmission</h3><p>The system converts the image pixel data directly to Base64 and transmits to Google servers.</p></div></div>
+                <div class="step"><span class="step-num">4</span><div class="step-body"><h3>Semantic Analysis</h3><p>Gemini LLM processes visual security features utilizing multi-modal deep-learning.</p></div></div>
+                <div class="step"><span class="step-num">5</span><div class="step-body"><h3>View Diagnostics</h3><p>Detailed, human-readable structural analysis and boolean authenticity are displayed.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author -->
+    <section class="section section-warm" id="author">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-chip">Author</span>
+                <h2 class="sec-title">Built by.</h2>
+            </div>
+            <div class="author-card">
+                <img src="raushan.jpg" alt="Raushan Kumar" class="author-photo">
+                <div class="author-info">
+                    <h3>Raushan Kumar</h3>
+                    <ul class="author-details">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                            BTech, National Institute of Technology (NIT) Nagaland
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6"/></svg>
+                            Roll Number: 2023104341
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            Python, OpenCV, Image Processing, Computer Vision
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span class="footer-brand">CurrencyGuard</span>
+            <p>Fake Currency Detection System — Detecting counterfeit Indian currency with computer vision.</p>
+            <div class="footer-line"></div>
+            <p class="footer-copy">&copy; 2025 Raushan Kumar &middot; BTech, NIT Nagaland &middot; Roll No. 2023104341 &middot; <a href="https://raushanme.com">raushanme.com</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
